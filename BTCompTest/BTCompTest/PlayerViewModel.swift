@@ -20,35 +20,23 @@ struct Media: Identifiable {
 }
 
 final class PlayerViewModel: ObservableObject {
+    /*
+     combine:
+     ObservableObject is a type with publisher that emits before has changed
+     */
     let player = AVPlayer()
     @Published var clockText : String = "Hello world"
+    /*
+     combine:
+     @Published is a type that publishes a property marked with an attribute.
+     @Published property wrapper is added to any properties inside an observed object that should cause views to update when they change
+     */
     @Published var isInPipMode: Bool = false
     @Published var isPlaying = false
-    
-    private var subscriptions: Set<AnyCancellable> = []
-    
-    deinit {
-
-    }
     
     init() {
         player.isMuted = true
         player.allowsExternalPlayback = true
-        player.publisher(for: \.timeControlStatus)
-            .sink { [weak self] status in
-                switch status {
-                case .playing:
-                    self?.isPlaying = true
-                case .paused:
-                    self?.isPlaying = false
-                case .waitingToPlayAtSpecifiedRate:
-                    break
-                @unknown default:
-                    break
-                }
-            }
-            .store(in: &subscriptions)
-
     }
     
     func setCurrentItem(_ item: AVPlayerItem) {

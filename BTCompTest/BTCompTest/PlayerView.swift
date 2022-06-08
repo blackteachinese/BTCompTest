@@ -24,8 +24,21 @@ class PlayerView: UIView {
     var playerLayer: AVPlayerLayer { layer as! AVPlayerLayer }
 }
 
+/*
+ SwiftUI使用UIKit的组件，需要用UIViewRepresentable协议
+ */
 struct CustomVideoPlayer: UIViewRepresentable {
+    /*
+     SwiftUI.State and Data Flow
+     @ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes
+     
+     How to use @ObservedObject to manage state from external objects
+     https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-observedobject-to-manage-state-from-external-objects
+     */
     @ObservedObject var playerVM: PlayerViewModel
+    /*
+     makeUIView:Creates the view object and configures its initial state,You must implement this method
+     */
     func makeUIView(context: Context) -> PlayerView {
         let view = PlayerView()
         view.player = playerVM.player
@@ -42,6 +55,10 @@ struct CustomVideoPlayer: UIViewRepresentable {
     class Coordinator: NSObject, AVPictureInPictureControllerDelegate {
         private let parent: CustomVideoPlayer
         private var controller: AVPictureInPictureController?
+        /*
+         combine
+         AnyCancellable: a type-erasing cancellable object that executes a provided closure when canceled
+         */
         private var cancellable: AnyCancellable?
         var clockLabel : UILabel
         init(_ parent: CustomVideoPlayer) {
@@ -50,7 +67,10 @@ struct CustomVideoPlayer: UIViewRepresentable {
             self.clockLabel.textAlignment = NSTextAlignment.center
             self.clockLabel.font = UIFont.systemFont(ofSize: 34)
             super.init()
-            
+            /*
+             combine
+             $:prefixing the name of @Published property with $, which give us access to a property
+             */
             cancellable = parent.playerVM.$isInPipMode
                 .sink { [weak self] in
                     guard let self = self,

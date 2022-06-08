@@ -9,6 +9,14 @@ import SwiftUI
 import AVKit
 
 struct CustomPlayerWithControls: View {
+    /*
+     SwiftUI State and Data Flow
+     @StateObject:a property wrapper type that instantiates an observable object
+     You should use this property wrapper to create the initial instance of an observable object
+     
+     initial instance use @StateObject
+     instance that were passed in from elsewhere use @observedObject
+     */
     @StateObject private var playerVM = PlayerViewModel()
     @State private var media: Media = .init(title: "First video", url: Bundle.main.path(forResource: "test", ofType: "mp4") ?? "")
     
