@@ -18,7 +18,7 @@ struct CustomPlayerWithControls: View {
      instance that were passed in from elsewhere use @observedObject
      */
     @StateObject private var playerVM = PlayerViewModel()
-    @State private var media: Media = .init(title: "First video", url: Bundle.main.path(forResource: "test", ofType: "mp4") ?? "")
+    @State private var media: Media = .init(title: "First video", url: Bundle.main.path(forResource: "short", ofType: "mp4") ?? "")
     
     init() {
         // we need this to use Picture in Picture
