@@ -21,6 +21,7 @@
 		E60598D7284EF6A600991B8F /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60598D5284EF6A600991B8F /* PlayerView.swift */; };
 		E60598D9284EF6AD00991B8F /* CustomPlayerWithControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60598D8284EF6AD00991B8F /* CustomPlayerWithControls.swift */; };
 		E60598DB284EF6DD00991B8F /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E60598DA284EF6DD00991B8F /* test.mp4 */; };
+		E60598E02851CFB500991B8F /* SyncNTPManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60598DF2851CFB500991B8F /* SyncNTPManage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E60598D8284EF6AD00991B8F /* CustomPlayerWithControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPlayerWithControls.swift; sourceTree = "<group>"; };
 		E60598DA284EF6DD00991B8F /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		E60598DC284EF88000991B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E60598DF2851CFB500991B8F /* SyncNTPManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncNTPManage.swift; sourceTree = "<group>"; };
 		E881A3F5A5F196A23738B04E /* Pods-BTCompTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTCompTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BTCompTestTests/Pods-BTCompTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 				E605989B284DE4C600991B8F /* BTCompTestApp.swift */,
 				E605989D284DE4C600991B8F /* ContentView.swift */,
 				E60598D5284EF6A600991B8F /* PlayerView.swift */,
+				E60598DF2851CFB500991B8F /* SyncNTPManage.swift */,
 				E60598D4284EF6A600991B8F /* PlayerViewModel.swift */,
 				E60598DA284EF6DD00991B8F /* test.mp4 */,
 				E60598D8284EF6AD00991B8F /* CustomPlayerWithControls.swift */,
@@ -321,12 +324,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BTCompTest/Pods-BTCompTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/NHNetworkTime/NHNetworkTime.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NHNetworkTime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +416,7 @@
 			files = (
 				E60598D9284EF6AD00991B8F /* CustomPlayerWithControls.swift in Sources */,
 				E60598D6284EF6A600991B8F /* PlayerViewModel.swift in Sources */,
+				E60598E02851CFB500991B8F /* SyncNTPManage.swift in Sources */,
 				E605989E284DE4C600991B8F /* ContentView.swift in Sources */,
 				E605989C284DE4C600991B8F /* BTCompTestApp.swift in Sources */,
 				E60598D7284EF6A600991B8F /* PlayerView.swift in Sources */,

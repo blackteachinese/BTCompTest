@@ -103,14 +103,19 @@ struct CustomVideoPlayer: UIViewRepresentable {
         }
         
         func fireTimer() {
+            // NTP sync
+            SyncNTPManage.shared.vm = parent.playerVM
+            SyncNTPManage.shared.fire()
+            // show the clock label
             Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { Timer in
-                self.parent.playerVM.clockText = self.getCurrentTime(date: Date()) ?? "Unknow"
+                self.parent.playerVM.clockText = self.getCurrentTime() ?? "Unknow"
                 self.clockLabel.text = self.parent.playerVM.clockText
 
             }
         }
         
-        func getCurrentTime(date:Date) -> String?{
+        func getCurrentTime() -> String?{
+            let date = Date().addingTimeInterval(parent.playerVM.timeOffset)
             let formatter = DateFormatter()
             formatter.dateFormat = "H:mm:ss.SSSS"
             return formatter.string(from: date)

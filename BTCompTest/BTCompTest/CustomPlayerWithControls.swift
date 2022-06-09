@@ -37,8 +37,10 @@ struct CustomPlayerWithControls: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             }
             .padding()
-            Text(playerVM.clockText)
-                .font(.system(size: 34)).multilineTextAlignment(.center)
+            Text("Time:" + playerVM.clockText)
+                .font(.system(size: 24)).multilineTextAlignment(.leading)
+            Text("offset:" + String(playerVM.timeOffset))
+                .font(.system(size: 24)).multilineTextAlignment(.leading)
             Button(action: {
                 withAnimation {
                     playerVM.isInPipMode.toggle()

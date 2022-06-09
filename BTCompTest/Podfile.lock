@@ -1,16 +1,26 @@
 PODS:
-  - SnapKit (5.0.1)
+  - CocoaAsyncSocket (7.5.1):
+    - CocoaAsyncSocket/GCD (= 7.5.1)
+  - CocoaAsyncSocket/GCD (7.5.1)
+  - NHNetworkTime (1.7.1):
+    - CocoaAsyncSocket (~> 7.5.0)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - NHNetworkTime
   - SnapKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - CocoaAsyncSocket
+    - NHNetworkTime
     - SnapKit
 
 SPEC CHECKSUMS:
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
+  NHNetworkTime: 1caa77ea7cd3055e7b40d2c1f1f6ea55de60c1ba
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 2713ac36f2e134ee0fb882b34558578ffcf95075
+PODFILE CHECKSUM: 5644f1660a942ad045e373fe2e7d15eb301f6736
 
 COCOAPODS: 1.5.0

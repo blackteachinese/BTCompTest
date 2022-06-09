@@ -25,7 +25,6 @@ final class PlayerViewModel: ObservableObject {
      ObservableObject is a type with publisher that emits before has changed
      */
     let player = AVPlayer()
-    @Published var clockText : String = "Hello world"
     /*
      combine:
      @Published is a type that publishes a property marked with an attribute.
@@ -33,6 +32,8 @@ final class PlayerViewModel: ObservableObject {
      */
     @Published var isInPipMode: Bool = false
     @Published var isPlaying = false
+    @Published var clockText : String = "Hello world"
+    @Published var timeOffset : TimeInterval = 0
     
     init() {
         player.isMuted = true
