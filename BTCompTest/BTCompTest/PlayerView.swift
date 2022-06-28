@@ -64,6 +64,7 @@ struct CustomVideoPlayer: UIViewRepresentable {
         init(_ parent: CustomVideoPlayer) {
             self.parent = parent
             self.clockLabel = UILabel()
+            self.clockLabel.textColor = UIColor.white
             self.clockLabel.textAlignment = NSTextAlignment.center
             self.clockLabel.font = UIFont.systemFont(ofSize: 34)
             super.init()
